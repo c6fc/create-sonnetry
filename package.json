@@ -1,11 +1,21 @@
 {
   "name": "create-sonnetry",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Create a new project for @c6fc/sonnetry",
   "main": "bin/index.js",
   "scripts": {
     "create-sonnetry": "node bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": {
+    "https://github.com/c6fc/create-sonnetry#readme"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c6fc/create-sonnetry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/c6fc/create-sonnetry/issues"
   },
   "author": "brad@bradwoodward.io",
   "license": "MIT"

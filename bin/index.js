@@ -51,7 +51,7 @@ if (!fs.existsSync(filemap.dir_sonnetry_modules)) {
 
 // Create the initial files
 
-if (!fs.existsSync(filemap.package) || 1 == 1) {
+if (!fs.existsSync(filemap.package)) {
 	fs.writeFileSync(filemap.package, JSON.stringify({
 		name,
 		version: "1.0.0",
@@ -75,7 +75,7 @@ if (!fs.existsSync(filemap.package) || 1 == 1) {
 	console.log(`[-] ${filemap.package} already exists. Leaving it alone.`);
 }
 
-if (!fs.existsSync(filemap.terraform) || 1 == 1) {
+if (!fs.existsSync(filemap.terraform)) {
 
 	fs.writeFileSync(filemap.terraform, 
 `local aws = import 'aws-sdk';
@@ -102,7 +102,8 @@ local modules = import 'modules';
 if (!fs.existsSync(filemap.gitignore)) {
 
 	fs.writeFileSync(filemap.gitignore, 
-`node_modules
+`**/node_modules
+lambda_functions/zip_files
 render*`);
 } else {
 	console.log(`[-] ${filemap.gitignore} already exists. Leaving it alone.`);
@@ -111,6 +112,5 @@ render*`);
 console.log("\n[+] All files written. Installing @c6fc/sonnetry. This may take a few minutes.\n");
 
 execSync("npm install", { cwd: targetPath, stdio: 'inherit' });
-execSync("npm run generate", { cwd: targetPath, stdio: 'inherit' });
 
 console.log("\n[+] All set. Good hunting.");
